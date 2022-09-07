@@ -39,7 +39,7 @@
     "build:css": "mkdirp themes && npm run css -- -o themes",
     "build:js": "cross-env NODE_ENV=production npm run _node -- build/build.js",
     "build:cover": "npm run _node -- build/cover.js",
-    "build": "rimraf lib themes && run-s build:js build:css build:css:min build:cover",
+    "build": "rimraf lib themes && run-s build:js build:css build:css:min build:cover #",
     "prepare": "npm run build",
     "pub:next": "cross-env RELEASE_TAG=next sh build/release.sh",
     "pub": "sh build/release.sh",
