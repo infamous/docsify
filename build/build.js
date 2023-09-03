@@ -9,10 +9,11 @@ import chokidar from 'chokidar';
 import path from 'path';
 import fs from 'fs';
 import _uglify from 'rollup-plugin-uglify';
+import { fileURLToPath } from 'url';
 
 const { uglify } = _uglify;
 const isProd = process.env.NODE_ENV === 'production';
-const dirname = path.dirname(import.meta.url.replace('file://', ''));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 const version =
   process.env.VERSION ||
   JSON.parse(fs.readFileSync(path.resolve(dirname, '..', 'package.json')).toString())

@@ -1,9 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 import child_process from 'child_process'
+import { fileURLToPath } from 'url';
 
 const {spawn} = child_process
-const dirname = path.dirname(import.meta.url.replace('file://', ''));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const args = process.argv.slice(2)
 fs.readdir(path.join(dirname, '../src/themes'), (err, files) => {

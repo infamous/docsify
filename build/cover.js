@@ -2,10 +2,11 @@
 
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url';
 
 const read = fs.readFileSync
 const write = fs.writeFileSync
-const dirname = path.dirname(import.meta.url.replace('file://', ''));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 const version =
   process.env.VERSION ||
   JSON.parse(fs.readFileSync(path.resolve(dirname, '..', 'package.json')).toString())
